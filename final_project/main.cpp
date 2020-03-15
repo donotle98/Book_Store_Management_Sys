@@ -25,23 +25,26 @@ void mainMenu() {
 	cout << "\t\t\t\t\t2. Inventory Database Module" << endl;
 	cout << "\t\t\t\t\t3. Report Module" << endl;
 	cout << "\t\t\t\t\t4. Exit" << endl;
-	cout << "\n\t\t\t\t\tEnter Your Choice: " << endl;
+	cout << "\n\t\t\t\t\tEnter Your Choice (1, 2, 3, 4): " << endl;
 	cin >> userMainMenuChoice;
-
-	switch (userMainMenuChoice) {
-	case 1:
-		cashRegister();
-		exit(0);
-	case 2:
-		inventory();
-		exit(0);
-	case 3:
-		report();
-		exit(0);
-	case 4:
-		cout << "Exiting System" << endl;
-		exit(0);
-	}
-
+	do {
+		switch (userMainMenuChoice) {
+		case 1:
+			cashRegister();
+			exit(0);
+		case 2:
+			inventory();
+			exit(0);
+		case 3:
+			report();
+			exit(0);
+		case 4:
+			cout << "Exiting System" << endl;
+			exit(0);
+		default:
+			std::cout << "Error in choice. Please enter one of the choices listed." << std::endl;
+			break;
+		}
+	} while (userMainMenuChoice != 4);
 }
 
