@@ -26,7 +26,7 @@ public:
 		//Start of the users cart loop
 		while (loop) {
 			int choice;
-			std::cout << "Would you like to look up a book by 1.Title or 2.ISBN (Enter 1 or 2): " << std::endl;
+			std::cout << "Would you like to look up a book by:" << std::endl << "\t1.Title " << std::endl << "\t2.ISBN\n(Enter 1 or 2): " << std::endl;
 			std::cin >> choice;
 			if (choice == 1) {
 				std::cout << "Enter the ISBN: " << std::endl;
