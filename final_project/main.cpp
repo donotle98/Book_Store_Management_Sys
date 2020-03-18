@@ -13,7 +13,7 @@ void inventoryMenu(Books library[], int bookCount);
 void reportMenu(Books library[], int bookCount);
 void returnToMainMenu(Books library[], int bookCount);
 
-//void CashRegister();
+void CashRegister();
 //void lookUpByISBN(std::string isbn, int bookCount, Books listOfBooks[], int& location);
 //void lookUpByTitle(std::string title, int bookCount, Books listOfBooks[], int& location);
 //void calculateSubtotal(double priceOfBook[], int numberOfBooksinCart);
@@ -26,6 +26,12 @@ int main() {
 	static Books library[1024];
 	int bookNumber = 51;
 	Books().getBookData(library, bookNumber);
+	std::string bookTitle = "Rick Riordan";
+	for (int i = 0; i < bookNumber; i++) {
+		if (library[i].getAuthor() == bookTitle) {
+			library[i].print();
+		}
+	}
 	mainMenu(library, bookNumber);
 	cout << "End of Program" << endl;
 	cout << "---------------" << endl;
@@ -47,7 +53,7 @@ void mainMenu(Books library[], int bookCount) {
 	do {
 		switch (userMainMenuChoice) {
 		case 1:
-			cashRegister();
+			CashRegister();
 			exit(0);
 		case 2:
 			inventoryMenu(library, bookCount);
@@ -70,20 +76,24 @@ void inventoryMenu(Books library[], int bookCount) {
 	std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\tInventory Database" << std::endl;
 	std::cout << "\t\t\t\t\t1. Look Up a Book" << std::endl;
 	std::cout << "\t\t\t\t\t2. Add a Book" << std::endl;
-	std::cout << "\t\t\t\t\t3. Edit a Book’s Record" << std::endl;
+	std::cout << "\t\t\t\t\t3. Edit a Book's Record" << std::endl;
 	std::cout << "\t\t\t\t\t4. Delete a Book" << std::endl;
 	std::cout << "\t\t\t\t\t5. Return to Main Menu" << std::endl;
 	std::cout << "\n\t\t\t\t\tEnter Your Choice: " << std::endl;
 	std::cin >> userChoice;
 	switch (userChoice) {
 	case 1:
-		inventory().lookUpABook(library, bookCount);
+		inventory().lookUpABook();
+		break;
 	case 2:
 		inventory().addABook();
+		break;
 	case 3:
 		inventory().editABooksRecord();
+		break;
 	case 4:
 		inventory().deleteABook();
+		break;
 	case 5:
 		returnToMainMenu(library, bookCount);
 	}
@@ -104,16 +114,22 @@ void reportMenu(Books library[], int bookCount) {
 	switch (userChoice) {
 	case 1:
 		report().inventoryListing();
+		break;
 	case 2:
 		report().inventoryWholeSaleValue();
+		break;
 	case 3:
 		report().inventoryRetailValue();
+		break;
 	case 4:
 		report().listingByQuantity();
+		break;
 	case 5:
 		report().listingByCost();
+		break;
 	case 6:
 		report().listingByAge();
+		break;
 	case 7:
 		returnToMainMenu(library, bookCount);
 	}
@@ -122,30 +138,30 @@ void reportMenu(Books library[], int bookCount) {
 void returnToMainMenu(Books library[], int bookCount) {
 	mainMenu(library, bookCount);
 }
-//void CashRegister() {
-//	// Display time
-//	time_t now = time(0);
-//	char* dt = ctime(&now);
-//
-//	std::string isbn, title, userChoice;
-//	int quantity;
-//	bool loop = true;
-//	std::cout << "\n\nCash Register\n=============\n\n";
-//		// screen output
-//		std::cout << "Serendipity Book Sellers" << std::endl << std::endl;
-//		std::cout << "Date: " << dt << std::endl << std::endl;
-//		std::cout << "Qty\tISBN\t\tTitle\t\t\t\tPrice\t\tTotal" << std::endl;
-//		std::cout << "-----------------------------------------------------------------------------" << std::endl;
-//		std::cout << quantity << "\t"; //display quantity
-//		std::cout << left << setw(10) << isbn << "\t"; //display ISBN
-//		std::cout << left << setw(20) << title << "\t"; //display title
-//		std::cout << std::endl << "Would you like to add another book? (y/n)" << std::endl; // Ask user if they want to continue adding books
-//		std::cin >> userChoice;
-//		if (userChoice == "n") {
-//			loop = false;
-//		}
-//	}
-//}
+void CashRegister() {
+	// Display time
+	time_t now = time(0);
+	char* dt = ctime(&now);
+
+	std::string isbn, title, userChoice;
+	//int quantity;
+	bool loop = true;
+	std::cout << "\n\nCash Register\n=============\n\n";
+		// screen output
+		std::cout << "Serendipity Book Sellers" << std::endl << std::endl;
+		std::cout << "Date: " << dt << std::endl << std::endl;
+		std::cout << "Qty\tISBN\t\tTitle\t\t\t\tPrice\t\tTotal" << std::endl;
+		std::cout << "-----------------------------------------------------------------------------" << std::endl;
+		//std::cout << quantity << "\t"; //display quantity
+		std::cout << left << setw(10) << isbn << "\t"; //display ISBN
+		std::cout << left << setw(20) << title << "\t"; //display title
+		std::cout << std::endl << "Would you like to add another book? (y/n)" << std::endl; // Ask user if they want to continue adding books
+		std::cin >> userChoice;
+		if (userChoice == "n") {
+			loop = false;
+		}
+}
+
 //// Looking up a book by ISBN
 //void lookUpByISBN(std::string isbn, int bookCount, Books listOfBooks[], int& location) {
 //	location = -1;

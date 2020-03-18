@@ -12,15 +12,8 @@ private:
 public:
 	inventory() {}
 	// Function to look up a book by either its Title or ISBN
-	void lookUpABook(Books library[], int bookCount) {
-		std::string userChoice;
-		std::cout << "Type in book title" << std::endl;
-		std::cin >> userChoice;
-		for (int i = 0; i < bookCount; i++) {
-			if (library[i].getTitle() == userChoice) {
-				std::cout << "hello world" << std::endl;
-			}
-		}
+	void lookUpABook() {
+
 	}
 	// Function to add a book to the database
 	void addABook() {
