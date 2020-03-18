@@ -1,2 +1,16 @@
-﻿  main.cpp
-c:\users\dtle6\source\repos\final_project\final_project\inventory.h(33): error C3861: 'main': identifier not found
+﻿  Books.cpp
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(15): error C2061: syntax error: identifier 'Books'
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(19): error C2065: 'bookCount': undeclared identifier
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(20): error C2065: 'library': undeclared identifier
+  cashRegister.cpp
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(15): error C2061: syntax error: identifier 'Books'
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(19): error C2065: 'bookCount': undeclared identifier
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(20): error C2065: 'library': undeclared identifier
+  main.cpp
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(15): error C2061: syntax error: identifier 'Books'
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(19): error C2065: 'bookCount': undeclared identifier
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(20): error C2065: 'library': undeclared identifier
+c:\users\dtle6\source\repos\final_project\final_project\main.cpp(80): error C2660: 'inventory::lookUpABook': function does not take 2 arguments
+  c:\users\dtle6\source\repos\final_project\final_project\inventory.h(15): note: see declaration of 'inventory::lookUpABook'
+  reportModule.cpp
+  Generating Code...

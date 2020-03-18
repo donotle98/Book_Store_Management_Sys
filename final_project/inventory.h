@@ -6,16 +6,21 @@
 #include "Books.h"
 #include "reportModule.h"
 
-class inventory : public Books {
+class inventory{
 private:
 
 public:
-	inventory() {
-		mainScreen();
-	}
+	inventory() {}
 	// Function to look up a book by either its Title or ISBN
-	void lookUpABook() {
-
+	void lookUpABook(Books library[], int bookCount) {
+		std::string userChoice;
+		std::cout << "Type in book title" << std::endl;
+		std::cin >> userChoice;
+		for (int i = 0; i < bookCount; i++) {
+			if (library[i].getTitle() == userChoice) {
+				std::cout << "hello world" << std::endl;
+			}
+		}
 	}
 	// Function to add a book to the database
 	void addABook() {
@@ -28,31 +33,5 @@ public:
 	// Function to delete a book from the database, including subtracting the quantity of the book from the total quantity
 	void deleteABook() {
 
-	}
-	void returnToMainMenu() {
-	}
-	// Print the main screen
-	void mainScreen() {
-		int userChoice;
-		std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\tInventory Database" << std::endl;
-		std::cout << "\t\t\t\t\t1. Look Up a Book" << std::endl;
-		std::cout << "\t\t\t\t\t2. Add a Book" << std::endl;
-		std::cout << "\t\t\t\t\t3. Edit a Book’s Record" << std::endl;
-		std::cout << "\t\t\t\t\t4. Delete a Book" << std::endl;
-		std::cout << "\t\t\t\t\t5. Return to Main Menu" << std::endl;
-		std::cout << "\n\t\t\t\t\tEnter Your Choice: " << std::endl;
-		std::cin >> userChoice;
-		switch (userChoice) {
-		case 1:
-			lookUpABook();
-		case 2:
-			addABook();
-		case 3:
-			editABooksRecord();
-		case 4:
-			deleteABook();
-		case 5:
-			returnToMainMenu();
-		}
 	}
 };

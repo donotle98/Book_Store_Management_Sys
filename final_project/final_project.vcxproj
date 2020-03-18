@@ -124,10 +124,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Books.cpp" />
+    <ClCompile Include="cashRegister.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="reportModule.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BookDatabase.h" />
     <ClInclude Include="Books.h" />
     <ClInclude Include="cashRegister.h" />
     <ClInclude Include="inventory.h" />
