@@ -4,12 +4,35 @@
 #include <string>
 
 #include "Books.h"
+#include "reportModule.h"
 
 class inventory : public Books {
 private:
 
 public:
 	inventory() {
+		mainScreen();
+	}
+	// Function to look up a book by either its Title or ISBN
+	void lookUpABook() {
+
+	}
+	// Function to add a book to the database
+	void addABook() {
+
+	}
+	// Function to edit a book within its database, need to ask use which of the attributes they would like to edit
+	void editABooksRecord() {
+
+	}
+	// Function to delete a book from the database, including subtracting the quantity of the book from the total quantity
+	void deleteABook() {
+
+	}
+	void returnToMainMenu() {
+	}
+	// Print the main screen
+	void mainScreen() {
 		int userChoice;
 		std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\tInventory Database" << std::endl;
 		std::cout << "\t\t\t\t\t1. Look Up a Book" << std::endl;
@@ -20,31 +43,16 @@ public:
 		std::cout << "\n\t\t\t\t\tEnter Your Choice: " << std::endl;
 		std::cin >> userChoice;
 		switch (userChoice) {
-			case 1:
-				lookUpABook();
-			case 2:
-				addABook();
-			case 3:
-				editABooksRecord();
-			case 4:
-				deleteABook();
-			case 5:
-				returnToMainMenu();
+		case 1:
+			lookUpABook();
+		case 2:
+			addABook();
+		case 3:
+			editABooksRecord();
+		case 4:
+			deleteABook();
+		case 5:
+			returnToMainMenu();
 		}
-	}
-	void lookUpABook() {
-
-	}
-	void addABook() {
-
-	}
-	void editABooksRecord() {
-
-	}
-	void deleteABook() {
-
-	}
-	void returnToMainMenu() {
-
 	}
 };

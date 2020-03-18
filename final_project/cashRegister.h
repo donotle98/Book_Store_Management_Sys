@@ -3,6 +3,7 @@
 #include <ctime>
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 class cashRegister {
 private:
@@ -23,6 +24,7 @@ public:
 		std::string isbn, title, userChoice;
 		int quantity;
 		bool loop = true;
+
 		//Start of the users cart loop
 		while (loop) {
 			int choice;
@@ -31,7 +33,10 @@ public:
 			if (choice == 1) {
 				std::cout << "Enter the ISBN: " << std::endl;
 				std::cin >> isbn;
+
 				// Need function to look up book by ISBN and add to the cart
+				
+
 				std::cout << "Quantity: " << std::endl;
 				std::cin >> quantity;
 				addToQuantity(quantity); // Add the amount of books to the cart
@@ -39,11 +44,15 @@ public:
 			else if (choice == 2) {
 				std::cout << "Enter the Title: " << std::endl;
 				std::cin >> title;
+
 				// Need function to look up book by Title and add to the cart
+
+
 				std::cout << "Quantity: " << std::endl;
 				std::cin >> quantity;
 				addToQuantity(quantity); // Add the amount of books to the cart
 			}
+
 			// screen output
 			std::cout << "Serendipity Book Sellers" << std::endl << std::endl;
 			std::cout << "Date: " << dt << std::endl << std::endl;
@@ -116,5 +125,23 @@ public:
 	void addToQuantity(int n) {
 		numberOfBooksinCart += n;
 		setNumberofBooksinCart(numberOfBooksinCart);
+	}
+	// Looking up a book by ISBN
+	void lookUpByISBN(std::string isbn, int bookCount, Books listOfBooks[], int& location) {
+		location = -1;
+		for (int i = 0; i < bookCount; i++) {
+			if (listOfBooks[i].isISBN(isbn)) {
+				location = i;
+			}
+		}
+	}
+	// Looking up a book by Title
+	void lookUpByTitle(std::string title, int bookCount, Books listOfBooks[], int& location) {
+		location = -1;
+		for (int i = 0; i < bookCount; i++) {
+			if (listOfBooks[i].isTITLE(title)) {
+				location = i;
+			}
+		}
 	}
 };

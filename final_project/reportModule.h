@@ -10,7 +10,35 @@ class report {
 private:
 
 public:
-	report() {
+	report() { reportMenu(); }
+	//A list of information on all books in the inventory.
+	void inventoryListing() {
+
+	}
+	//A  list  of  the  wholesale  value  of  all  books  in  the  inventory and the total wholesale value of the inventory. 
+	void inventoryWholeSaleValue() {
+
+	}
+	//A  list  of  the  retail  value  of  all  books  in  the  inventory  and the total retail value of the inventory. 
+	void inventoryRetailValue() {
+
+	}
+	//A list of all books in the inventory sorted by quantity on hand.  The books with the greatest quantity on hand will be listed first. 
+	void listingByQuantity() {
+
+	}
+	//A list of all books in the inventory, sorted by wholesale cost. The books with the greatest wholesale cost will be listed first. 
+	void listingByCost() {
+
+	}
+	//A  list  of  all  books  in  the  inventory,  sorted  by  purchase  date.  The  books that have been in the inventory longest will be listed first. 
+	void listingByAge() {
+
+	}
+	void returnToMainMenu() {
+
+	}
+	void reportMenu() {
 		int userChoice;
 		std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\t\tReports" << std::endl;
 		std::cout << "\t\t\t\t\t1. Inventory Listing" << std::endl;
@@ -39,33 +67,5 @@ public:
 			returnToMainMenu();
 		}
 	}
-	//A list of information on all books in the inventory.
-	void inventoryListing() {
-
-	}
-	//A  list  of  the  wholesale  value  of  all  books  in  the  inventory and the total wholesale value of the inventory. 
-	void inventoryWholeSaleValue() {
-
-	}
-	//A  list  of  the  retail  value  of  all  books  in  the  inventory  and the total retail value of the inventory. 
-	void inventoryRetailValue() {
-
-	}
-	//A list of all books in the inventory sorted by quantity on hand.  The books with the greatest quantity on hand will be listed first. 
-	void listingByQuantity() {
-
-	}
-	//A list of all books in the inventory, sorted by wholesale cost. The books with the greatest wholesale cost will be listed first. 
-	void listingByCost() {
-
-	}
-	//A  list  of  all  books  in  the  inventory,  sorted  by  purchase  date.  The  books that have been in the inventory longest will be listed first. 
-	void listingByAge() {
-
-	}
-	void returnToMainMenu() {
-
-	}
-
 
 };

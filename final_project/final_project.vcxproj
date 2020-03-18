@@ -127,10 +127,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BookDatabase.h" />
     <ClInclude Include="Books.h" />
     <ClInclude Include="cashRegister.h" />
     <ClInclude Include="inventory.h" />
     <ClInclude Include="reportModule.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Booklist_Final.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,2 +1,2 @@
 ﻿  main.cpp
-  final_project.vcxproj -> C:\Users\dtle6\source\repos\final_project\Debug\final_project.exe
+c:\users\dtle6\source\repos\final_project\final_project\inventory.h(33): error C3861: 'main': identifier not found

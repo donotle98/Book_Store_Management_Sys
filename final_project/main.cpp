@@ -10,13 +10,14 @@ using namespace std;
 void mainMenu();
 
 int main() {
+	main2();
 	mainMenu();
-
 	cout << "End of Program" << endl;
 	cout << "---------------" << endl;
 	system("break");
 	return 0;
 }
+
 
 void mainMenu() {
 	int userMainMenuChoice;
@@ -47,4 +48,3 @@ void mainMenu() {
 		}
 	} while (userMainMenuChoice != 4);
 }
-
