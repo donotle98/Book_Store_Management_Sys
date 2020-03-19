@@ -1,0 +1,9 @@
+#pragma once
+#include <iostream>
+#include <fstream>
+#include <ostream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <ctime>
+#include <iomanip>

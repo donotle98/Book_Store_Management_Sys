@@ -126,12 +126,14 @@
   <ItemGroup>
     <ClCompile Include="Books.cpp" />
     <ClCompile Include="cashRegister.cpp" />
+    <ClCompile Include="inventory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="reportModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Books.h" />
     <ClInclude Include="cashRegister.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="inventory.h" />
     <ClInclude Include="reportModule.h" />
   </ItemGroup>

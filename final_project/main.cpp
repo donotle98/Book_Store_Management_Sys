@@ -1,36 +1,33 @@
-#include <string>
-#include <iostream>
-#include <iomanip>
-#include <ctime>
+#include "Header.h"
 #include "Books.h"
 #include "cashRegister.h"
-#include "inventory.h"
 #include "reportModule.h"
+#include "inventory.h"
 using namespace std;
 
 void mainMenu(Books library[], int bookCount);
+
+//Inventory functions
 void inventoryMenu(Books library[], int bookCount);
+void lookUpABook(Books library[], int bookCount);
+
+
+//Report functions
 void reportMenu(Books library[], int bookCount);
 void returnToMainMenu(Books library[], int bookCount);
 
-void CashRegister();
-//void lookUpByISBN(std::string isbn, int bookCount, Books listOfBooks[], int& location);
-//void lookUpByTitle(std::string title, int bookCount, Books listOfBooks[], int& location);
-//void calculateSubtotal(double priceOfBook[], int numberOfBooksinCart);
-//void calculateTax(double subtotal);
-//void calculateTotal(double taxOfBook, double subtotal);
-//void addToQuantity(int n);
+
+//Cash Register functions
+void CashRegister(Books library[], int bookCount);
+void cart(vector<cashRegister> cartBooks, double price, std::string isbn, std::string title, int quantity);
 
 
 int main() {
 	static Books library[1024];
 	int bookNumber = 51;
 	Books().getBookData(library, bookNumber);
-	std::string bookTitle = "Rick Riordan";
 	for (int i = 0; i < bookNumber; i++) {
-		if (library[i].getAuthor() == bookTitle) {
-			library[i].print();
-		}
+		library[i].print();
 	}
 	mainMenu(library, bookNumber);
 	cout << "End of Program" << endl;
@@ -53,13 +50,13 @@ void mainMenu(Books library[], int bookCount) {
 	do {
 		switch (userMainMenuChoice) {
 		case 1:
-			CashRegister();
+			CashRegister(library, bookCount);
 			exit(0);
 		case 2:
 			inventoryMenu(library, bookCount);
 			exit(0);
 		case 3:
-			report();
+			reportMenu(library, bookCount);
 			exit(0);
 		case 4:
 			cout << "Exiting System" << endl;
@@ -83,7 +80,7 @@ void inventoryMenu(Books library[], int bookCount) {
 	std::cin >> userChoice;
 	switch (userChoice) {
 	case 1:
-		inventory().lookUpABook();
+		lookUpABook(library, bookCount);
 		break;
 	case 2:
 		inventory().addABook();
@@ -138,74 +135,133 @@ void reportMenu(Books library[], int bookCount) {
 void returnToMainMenu(Books library[], int bookCount) {
 	mainMenu(library, bookCount);
 }
-void CashRegister() {
+
+
+//Function to call upon the cash register
+void CashRegister(Books library[], int bookCount) {
 	// Display time
 	time_t now = time(0);
 	char* dt = ctime(&now);
 
-	std::string isbn, title, userChoice;
-	//int quantity;
-	bool loop = true;
+	vector<cashRegister> cartBooks;
+
+	std::string isbn, title;
+	double price = 0;
+	int userChoice;
+	int quantityOfBooks;
+	double taxrate = .0975;
+	double totalPriceOfBooks = 0;
+	char ch = 0;
+	int counter = 0;
+
+
 	std::cout << "\n\nCash Register\n=============\n\n";
-		// screen output
-		std::cout << "Serendipity Book Sellers" << std::endl << std::endl;
-		std::cout << "Date: " << dt << std::endl << std::endl;
-		std::cout << "Qty\tISBN\t\tTitle\t\t\t\tPrice\t\tTotal" << std::endl;
-		std::cout << "-----------------------------------------------------------------------------" << std::endl;
-		//std::cout << quantity << "\t"; //display quantity
-		std::cout << left << setw(10) << isbn << "\t"; //display ISBN
-		std::cout << left << setw(20) << title << "\t"; //display title
-		std::cout << std::endl << "Would you like to add another book? (y/n)" << std::endl; // Ask user if they want to continue adding books
+
+
+	//std::cout << "Qty\tISBN\t\tTitle\t\t\t\tPrice\t\tTotal" << std::endl;
+	//std::cout << "-----------------------------------------------------------------------------" << std::endl;
+	
+	bool loop = true;
+	while (loop) {
+		std::cout << "Would you like to purchase a book by..." << std::endl;
+		std::cout << "1.Title\n" << "2.ISBN\n" << "(enter 1 or 2)\n" << std::endl;
 		std::cin >> userChoice;
-		if (userChoice == "n") {
+		std::cout << "" << std::endl;
+		if (userChoice == 1) {
+			std::cout << "List of books in stock" << std::endl;
+			std::cout << "=============================" << std::endl;
+			for (int i = 0; i < bookCount; i++) {
+				std::cout << library[i].getTitle() << std::endl;
+			}
+			std::cout << "\n\nPlease enter the Title you wish to purchase:" << std::endl;
+			cin.ignore();
+			getline(cin, title);
+			for (int i = 0; i < bookCount; i++) {
+				if (library[i].getTitle() == title) {
+					price = library[i].getRetail();
+					isbn = library[i].getISBN();
+					std::cout << "Price of Book: $" << price << std::endl;
+				}
+			}
+			double subTotal = 0;
+			std::cout << "How many would you like to purchase?" << std::endl;
+			std::cin >> quantityOfBooks;
+			subTotal = quantityOfBooks * price;
+			totalPriceOfBooks += subTotal;
+			//std::cout << "Qty\tISBN\t\tTitle\t\t\t\tPrice\t\tTotal" << std::endl;
+			//std::cout << "-----------------------------------------------------------------------------" << std::endl;
+			cashRegister a = cashRegister(price, title, isbn, quantityOfBooks, subTotal);
+			cartBooks.push_back(a);
+
+		}
+		else if(userChoice == 2){
+			std::string titleOfISBN;
+			std::cout << "List  of ISBN's in our database" << std::endl;
+			std::cout << "===============================" << std::endl;
+			for (int i = 0; i < bookCount; i++) {
+				std::cout << "ISBN: " << library[i].getISBN() << std::endl;
+				std::cout << "Title: " << library[i].getTitle() << std::endl;
+				std::cout << "-----------------" << std::endl;
+			}
+			std::cout << "\n\nPlease enter the ISBN you wish to purchase:" << std::endl;
+			cin.ignore();
+			getline(cin, isbn);
+			for (int i = 0; i < bookCount; i++) {
+				if (library[i].getISBN() == isbn) {
+					price = library[i].getRetail();
+					titleOfISBN = library[i].getTitle();
+					std::cout << "Title of book: " << titleOfISBN << std::endl;
+					std::cout << "Price of book: $" << price << std::endl;
+				}
+			}
+			double subTotal = 0;
+			std::cout << "How many would you like to purchase?" << std::endl;
+			std::cin >> quantityOfBooks;
+			subTotal += (quantityOfBooks * price);
+			totalPriceOfBooks += subTotal;
+			cashRegister a = cashRegister(price, titleOfISBN, isbn, quantityOfBooks, subTotal);
+			cartBooks.push_back(a);
+		}
+		std::cout << "\nWould you like to add another book? (y/n)" << std::endl;
+		std::cin >> ch;
+		if (ch == 'n') {
+			double taxOfBook = taxrate * totalPriceOfBooks;
+			std::cout << "Serendipity Book Sellers" << std::endl << std::endl;
+			std::cout << "Date: " << dt << std::endl << std::endl;
+			std::cout << "\n\nQty\tISBN\t\tTitle\t\t\t\t\tPrice\t\t\t\Total" << std::endl;
+			std::cout << "--------------------------------------------------------------------------------------" << std::endl;
+			for (int i = 0; i < cartBooks.size(); i++) {
+				cartBooks[i].printCart();
+				std::cout << "" << std::endl;
+			}
+			std::cout << "Subtotal: $" << setprecision(7) << totalPriceOfBooks << std::endl;
+			std::cout << "Tax: $" << setprecision(7) << taxOfBook << std::endl;
+			std::cout << "Total: $" << setprecision(9) << totalPriceOfBooks + taxOfBook << std::endl;
 			loop = false;
 		}
-}
+		else {
+			counter++;
+		}
 
-//// Looking up a book by ISBN
-//void lookUpByISBN(std::string isbn, int bookCount, Books listOfBooks[], int& location) {
-//	location = -1;
-//	for (int i = 0; i < bookCount; i++) {
-//		if (listOfBooks[i].isISBN(isbn)) {
-//			location = i;
-//		}
-//	}
+	}
+
+
+}
+//Function for cash register cart
+//void cart(vector<cashRegister> cartBooks, double price, std::string isbn, std::string title, int quantity) {
+//	cashRegister a = cashRegister(price, title, isbn, quantity);
+//	cartBooks.push_back(a);
 //}
-//// Looking up a book by Title
-//void lookUpByTitle(std::string title, int bookCount, Books listOfBooks[], int& location) {
-//	location = -1;
-//	for (int i = 0; i < bookCount; i++) {
-//		if (listOfBooks[i].isTITLE(title)) {
-//			location = i;
-//		}
-//	}
-//}
-//// Calculates the sub total of the cart
-//// First need to get the prices of all books into an array
-//// which can be displayed in the screen
-//void calculateSubtotal(double priceOfBook[], int numberOfBooksinCart) {
-//	double st;
-//	for (int i = 0; i < numberOfBooksinCart; i++) {
-//		st += priceOfBook[i];
-//		i++;
-//	}
-//	cashRegister().setSubTotal(st);
-//}
-//// Calculates the tax of the subtotal of the cart
-//void calculateTax(double subtotal) {
-//	double taxOfBook, taxRate;
-//	taxOfBook = subtotal * taxRate;
-//	cashRegister().setTaxofBook(taxOfBook);
-//}
-//// Calculates the total of the cart (tax + subtotal)
-//void calculateTotal(double taxOfBook, double subtotal) {
-//	double totalPriceOfBook;
-//	totalPriceOfBook = taxOfBook + subtotal;
-//	cashRegister().setTotalPrice(totalPriceOfBook);
-//}
-//// This function needs to be able add the quantity the user enters into the cart
-//void addToQuantity(int n) {
-//	int numberOfBooksinCart = 0;
-//	numberOfBooksinCart += n;
-//	cashRegister().setNumberofBooksinCart(numberOfBooksinCart);
-//}
+
+
+void lookUpABook(Books library[], int bookCount) {
+	std::string userTitle;
+	std::cout << "Enter the title of the book you would like to search: " << std::endl;
+	cin.ignore();
+	getline(cin, userTitle);
+	for (int i = 0; i < bookCount; i++) {
+		if (library[i].getTitle() == userTitle) {
+			library[i].print();
+		}
+	}
+}

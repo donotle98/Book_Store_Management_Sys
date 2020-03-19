@@ -1,18 +1,8 @@
-#include <iostream>
-#include <string>
-
+#include "Header.h"
 #include "Books.h"
-Books::Books(){}
-Books::Books(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail) {
-	Number = number;
-	ISBN = isbn;
-	Title = title;
-	Author = author;
-	Publisher = publisher;
-	Date = date;
-	Stock = stock;
-	Wholesale = wholesale;
-	Retail = retail;
+
+Books::Books(){
+
 }
 void Books::setBooks(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail)
 {
@@ -25,16 +15,6 @@ void Books::setBooks(int number, std::string isbn, std::string title, std::strin
 	Stock = stock;
 	Wholesale = wholesale;
 	Retail = retail;
-}
-//compare isbn
-bool Books::isISBN(std::string s) const
-{
-	return(ISBN == s);
-}
-//compare title
-bool Books::isTITLE(std::string s) const
-{
-	return(Title == s);
 }
 void Books::setNumber(int number)
 {
@@ -52,30 +32,29 @@ std::string Books::getISBN()
 {
 	return ISBN;
 }
-
-void Books::setTitle(string title)
+void Books::setTitle(std::string title)
 {
 	Title = title;
 }
-string Books::getTitle()
+std::string Books::getTitle()
 {
 	return Title;
 }
 
-void Books::setAuthor(string author)
+void Books::setAuthor(std::string author)
 {
 	Author = author;
 }
-string Books::getAuthor()
+std::string Books::getAuthor()
 {
 	return Author;
 }
 
-void Books::setPublisher(string publisher)
+void Books::setPublisher(std::string publisher)
 {
 	Publisher = publisher;
 }
-string Books::getPublisher()
+std::string Books::getPublisher()
 {
 	return Publisher;
 }
@@ -117,15 +96,16 @@ double Books::getRetail()
 }
 void Books::print()
 {
-	std::cout << Number << " " << std::endl;
+	std::cout << "" << std::endl;
+	std::cout << "#" << Number << " " << std::endl;
 	std::cout << ISBN << " " << std::endl;
 	std::cout << Title << " " << std::endl;
 	std::cout << Author << " " << std::endl;
 	std::cout << Publisher << " " << std::endl;
 	std::cout << Date << " " << std::endl;
-	std::cout << Stock << " " << std::endl;
-	std::cout << Wholesale << " " << std::endl;
-	std::cout << Retail << " " << std::endl;
+	std::cout << "Current Stock: " << Stock << " " << std::endl;
+	std::cout << "Wholesale Value: $" << Wholesale << " " << std::endl;
+	std::cout << "Retail Value: $" << Retail << " " << std::endl;
 	std::cout << std::endl;
 }
 
@@ -176,5 +156,5 @@ void Books::getBookData(Books library[], int& numOfBooks) {
 		library[i].setBooks(number, isbn, title, author, publisher, date, stock, wholesale, retail);
 		i++;
 	}
-
+	infile.close();
 }

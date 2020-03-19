@@ -1,11 +1,4 @@
-#pragma once
-#include "inventory.h"
-#include "cashRegister.h"
-#include "Books.h"
-#include <iostream>
-#include <string>
-#include <iomanip>
-
+#include "Header.h"
 class report{
 private:
 

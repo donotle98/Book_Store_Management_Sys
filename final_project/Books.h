@@ -1,14 +1,6 @@
-#pragma once
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <vector>
-#include "inventory.h"
-using namespace std;
+#include "Header.h"
 
-class Books
-{
+class Books{
 private:
 	int Number;
 	std::string ISBN;
@@ -17,28 +9,28 @@ private:
 	std::string Publisher;
 	int Date;
 	int Stock;
+	int Quantity;
 	double Wholesale;
 	double Retail;
 
 public:
 	Books();
-	Books(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail);
 	void setBooks(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail);
-
+	
 	void setNumber(int number);
 	int getNumber();
 
 	void setISBN(int isbn);
 	std::string getISBN();
 
-	void setTitle(string title);
-	string getTitle();
+	void setTitle(std::string title);
+	std::string getTitle();
 
-	void setAuthor(string author);
-	string getAuthor();
+	void setAuthor(std::string author);
+	std::string getAuthor();
 
-	void setPublisher(string publisher);
-	string getPublisher();
+	void setPublisher(std::string publisher);
+	std::string getPublisher();
 
 	void setDate(int date);
 	int getDate();
@@ -52,8 +44,6 @@ public:
 	void setRetail(double retail);
 	double getRetail();
 
-	bool isISBN(std::string s) const; //compare isbn
-	bool isTITLE(std::string s) const; //compare title
 	void print();
 	void getBookData(Books library[], int& numOfBooks);
 };

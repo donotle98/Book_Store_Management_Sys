@@ -1,7 +1,8 @@
+#include "Header.h"
 #include "reportModule.h"
-
+#include "Books.h"
 //A list of information on all books in the inventory.
-void report::inventoryListing() {
+void report::inventoryListing(){
 
 }
 //A  list  of  the  wholesale  value  of  all  books  in  the  inventory and the total wholesale value of the inventory. 

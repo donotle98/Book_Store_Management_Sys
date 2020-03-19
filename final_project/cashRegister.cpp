@@ -1,5 +1,43 @@
+#include "Header.h"
+#include <iomanip>
 #include "cashRegister.h"
-
+cashRegister::cashRegister(double price, std::string title, std::string isbn, int quantity, double t) {
+	priceOfBook = price;
+	nameOfBook = title;
+	isbnOfBook = isbn;
+	quantityOfBook = quantity;
+	totalPriceOfBooks = t;
+}
+void cashRegister::setpriceOfBook(double price) {
+	priceOfBook = price;
+}
+void cashRegister::setnameOfBook(std::string name) {
+	nameOfBook = name;
+}
+void cashRegister::setisbnOfBook(std::string isbn) {
+	isbnOfBook = isbn;
+}
+void cashRegister::setquantityOfBook(int quantity) {
+	quantityOfBook = quantity;
+}
+double cashRegister::getpriceOfBook() {
+	return priceOfBook;
+}
+std::string cashRegister::getnameOfBook() {
+	return nameOfBook;
+}
+std::string cashRegister::getisbnOfBook() {
+	return isbnOfBook;
+}
+int cashRegister::getquantityOfBook() {
+	return quantityOfBook;
+}
+void cashRegister::setTaxRate(double t) {
+	taxRate = t;
+}
+double cashRegister::getTaxRate() {
+	return taxRate;
+}
 void cashRegister::setSubTotal(double st) {
 	subtotal = st;
 }
@@ -13,14 +51,28 @@ double cashRegister::getTaxofBook() {
 	return taxOfBook;
 }
 void cashRegister::setTotalPrice(double price) {
-	totalPriceOfBook = price;
+	totalPriceOfBooks = price;
 }
 double cashRegister::getTotalPrice() {
-	return totalPriceOfBook;
+	return totalPriceOfBooks;
 }
 void cashRegister::setNumberofBooksinCart(int n) {
-	numberOfBooksinCart = n;
+	quantityOfBook = n;
 }
 int cashRegister::getNumberofBooksinCart() {
-	return numberOfBooksinCart;
+	return quantityOfBook;
+}
+void cashRegister::setCart(double price, std::string title, std::string isbn, int quantity, double t) {
+	priceOfBook = price;
+	nameOfBook = title;
+	isbnOfBook = isbn;
+	quantityOfBook = quantity;
+	totalPriceOfBooks = t;
+}
+void cashRegister::printCart() {
+	std::cout << quantityOfBook << "\t"; //display quantity
+	std::cout << isbnOfBook << "\t"; //display ISBN //left << setw(10) << 
+	std::cout << nameOfBook << "\t"; //display title //left << setw(20) << 
+	std::cout << priceOfBook << "\t"; //display price //left << setw(30) << 
+	std::cout << totalPriceOfBooks << std::endl;
 }
