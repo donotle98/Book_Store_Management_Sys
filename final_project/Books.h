@@ -1,3 +1,5 @@
+#ifndef books_header
+#define books_header
 #include "Header.h"
 
 class Books{
@@ -15,12 +17,13 @@ private:
 
 public:
 	Books();
+	Books(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail);
 	void setBooks(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail);
 	
 	void setNumber(int number);
 	int getNumber();
 
-	void setISBN(int isbn);
+	void setISBN(std::string isbn);
 	std::string getISBN();
 
 	void setTitle(std::string title);
@@ -45,5 +48,7 @@ public:
 	double getRetail();
 
 	void print();
-	void getBookData(Books library[], int& numOfBooks);
+	void getBookData(Books library[], int& numOfBooks, std::vector<Books> vLibrary);
 };
+
+#endif books_header

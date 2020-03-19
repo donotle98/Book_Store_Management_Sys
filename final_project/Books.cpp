@@ -4,6 +4,17 @@
 Books::Books(){
 
 }
+Books::Books(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail) {
+	Number = number;
+	ISBN = isbn;
+	Title = title;
+	Author = author;
+	Publisher = publisher;
+	Date = date;
+	Stock = stock;
+	Wholesale = wholesale;
+	Retail = retail;
+}
 void Books::setBooks(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail)
 {
 	Number = number;
@@ -24,7 +35,7 @@ int Books::getNumber()
 {
 	return Number;
 }
-void Books::setISBN(int isbn)
+void Books::setISBN(std::string isbn)
 {
 	ISBN = isbn;
 }
@@ -110,7 +121,7 @@ void Books::print()
 }
 
 //Books(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail)
-void Books::getBookData(Books library[], int& numOfBooks) {
+void Books::getBookData(Books library[], int& numOfBooks, std::vector<Books> vLibrary) {
 	std::string isbn{};
 	std::string title;
 	std::string author;
@@ -154,6 +165,8 @@ void Books::getBookData(Books library[], int& numOfBooks) {
 		retail = std::stod(line);
 		getline(infile, line);
 		library[i].setBooks(number, isbn, title, author, publisher, date, stock, wholesale, retail);
+		Books a = Books(number, isbn, title, author, publisher, date, stock, wholesale, retail);
+		vLibrary.push_back(a);
 		i++;
 	}
 	infile.close();
