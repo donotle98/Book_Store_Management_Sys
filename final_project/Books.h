@@ -47,8 +47,7 @@ public:
 	void setRetail(double retail);
 	double getRetail();
 
-	void print();
-	void getBookData(Books library[], int& numOfBooks, std::vector<Books> vLibrary);
+	friend void print(Books);
 };
 
 #endif books_header

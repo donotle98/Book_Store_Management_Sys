@@ -5,6 +5,16 @@
 #include "inventory.h"
 using namespace std;
 
+/*
+-Friend functions
+-Templates //done
+-nonfriend operator overloading //done
+-polymorhism
+-inheritance //done
+-classes //done
+-exception handling
+*/
+
 //Main Menu functions
 void mainMenu(Books library[], int bookCount);
 void returnToMainMenu(Books library[], int bookCount);
@@ -22,21 +32,11 @@ void reportMenu(Books library[], int bookCount);
 void CashRegister(Books library[], int bookCount);
 void subtractFromStockTitle(Books library[], int bookCount, int userAmount, std::string title);
 void subtractFromStockISBN(Books library[], int bookCount, int userAmount, std::string isbn);
-//void cart(vector<cashRegister> cartBooks, double price, std::string isbn, std::string title, int quantity);
 
 
 int main() {
 	static Books library[1024]; //Create array of Books
-	int bookNumber = 60; //Initialize amount of book space
-	vector<Books> vLibrary;
-	Books().getBookData(library, bookNumber, vLibrary); //Read book text file into library array of object
-	//for (int i = 0; i < bookNumber; i++) { //MAKE SURE TO DELETE
-	//	library[i].print();
-	//}
-	for (int i = 0; i < vLibrary.size(); i++) {
-		vLibrary[i].print();
-		std::cout << "" << std::endl;
-	}
+	int bookNumber = 49; //Initialize amount of book space
 	mainMenu(library, bookNumber);
 	cout << "End of Program" << endl;
 	cout << "---------------" << endl;
@@ -47,108 +47,152 @@ int main() {
 
 //The first screen the user will see
 void mainMenu(Books library[], int bookCount) {
-	int userMainMenuChoice;
-	cout << "\t\t\t\t\tSerendipity Booksellers" << endl << "\t\t\t\t\t\tMain Menu" << endl;
-	cout << "\t\t\t\t\t1. Cashier Module" << endl;
-	cout << "\t\t\t\t\t2. Inventory Database Module" << endl;
-	cout << "\t\t\t\t\t3. Report Module" << endl;
-	cout << "\t\t\t\t\t4. Exit" << endl;
-	cout << "\n\t\t\t\t\tEnter Your Choice (1, 2, 3, 4): " << endl;
-	cin >> userMainMenuChoice;
-	do {
+	bool loop = true;
+	while (loop) {
+		int userMainMenuChoice;
+		cout << "\t\t\t\t\tSerendipity Booksellers" << endl << "\t\t\t\t\t\tMain Menu" << endl;
+		cout << "\t\t\t\t\t1. Cashier Module" << endl;
+		cout << "\t\t\t\t\t2. Inventory Database Module" << endl;
+		cout << "\t\t\t\t\t3. Report Module" << endl;
+		cout << "\t\t\t\t\t4. Exit" << endl;
+		cout << "\n\t\t\t\t\tEnter Your Choice (1, 2, 3, 4): " << endl;
+		cin >> userMainMenuChoice;
+		bool loop = true;
+
 		switch (userMainMenuChoice) {
 		case 1:
 			CashRegister(library, bookCount);
-			exit(0);
+			break;
 		case 2:
 			inventoryMenu(library, bookCount);
-			exit(0);
+			break;
 		case 3:
 			reportMenu(library, bookCount);
-			exit(0);
+			break;
 		case 4:
 			cout << "Exiting System" << endl;
 			exit(0);
 		default:
-			std::cout << "Error in choice. Please enter one of the choices listed." << std::endl;
+			std::cout << "Error in choice. Please enter one of the choices listed.\n\n" << std::endl;
 			break;
 		}
-	} while (userMainMenuChoice != 4);
+	}
+
+
+	
 }
 //The inventory module screen
 void inventoryMenu(Books library[], int bookCount) {
-	std::string userTitle;
-	int userChoice;
-	std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\tInventory Database" << std::endl;
-	std::cout << "\t\t\t\t\t1. Look Up a Book" << std::endl;
-	std::cout << "\t\t\t\t\t2. Add a Book" << std::endl;
-	std::cout << "\t\t\t\t\t3. Edit a Book's Record" << std::endl;
-	std::cout << "\t\t\t\t\t4. Delete a Book" << std::endl;
-	std::cout << "\t\t\t\t\t5. Return to Main Menu" << std::endl;
-	std::cout << "\n\t\t\t\t\tEnter Your Choice: " << std::endl;
-	std::cin >> userChoice;
-	switch (userChoice) {
-	case 1:
-		std::cout << "Enter the title of the book you would like to search: " << std::endl;
-		std::cin.ignore();
-		getline(cin, userTitle);
-		inventory().lookUpABook(library, bookCount, userTitle);
-		break;
-	case 2:
-		inventory().addABook(library, bookCount);
-		break;
-	case 3:
-		std::cout << "Enter the title of the book you would like to search: " << std::endl;
-		std::cin.ignore();
-		getline(cin, userTitle);
-		inventory().editABooksRecord(library, bookCount, userTitle);
-		break;
-	case 4:
-		std::cout << "Enter the title of the book you would like to search: " << std::endl;
-		std::cin.ignore();
-		getline(cin, userTitle);
-		inventory().deleteABook(library, bookCount, userTitle);
-		break;
-	case 5:
-		returnToMainMenu(library, bookCount);
+	bool loop = true;
+	while (loop) {
+		std::string userTitle;
+		int userChoice;
+		std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\tInventory Database" << std::endl;
+		std::cout << "\t\t\t\t\t1. Look Up a Book" << std::endl;
+		std::cout << "\t\t\t\t\t2. Add a Book" << std::endl;
+		std::cout << "\t\t\t\t\t3. Edit a Book's Record" << std::endl;
+		std::cout << "\t\t\t\t\t4. Delete a Book" << std::endl;
+		std::cout << "\t\t\t\t\t5. Return to Main Menu" << std::endl;
+		std::cout << "\n\t\t\t\t\tEnter Your Choice: " << std::endl;
+		std::cin >> userChoice;
+		switch (userChoice) {
+		case 1:
+			std::cout << "Enter the title of the book you would like to search: " << std::endl;
+			std::cin.ignore();
+			getline(cin, userTitle);
+			for (int i = 0; i < bookCount; i++) {
+				if (library[i].getTitle() != userTitle) {
+					std::cout << "ERROR: You have not entered a book in the database(Capatilization and spelling are important)\n\n" << std::endl;
+					break;
+				}
+			}
+			inventory().lookUpABook(library, bookCount, userTitle);
+			break;
+		case 2:
+			inventory().addABook(library, bookCount);
+		case 3:
+			std::cout << "Enter the title of the book you would like to search: " << std::endl;
+			std::cin.ignore();
+			getline(cin, userTitle);
+			for (int i = 0; i < bookCount; i++) {
+				if (library[i].getTitle() != userTitle) {
+					std::cout << "ERROR: You have not entered a book in the database(Capatilization and spelling are important)\n\n" << std::endl;
+					break;
+				}
+			}
+			inventory().editABooksRecord(library, bookCount, userTitle);
+			break;
+		case 4:
+			std::cout << "Enter the title of the book you would like to delete: " << std::endl;
+			std::cin.ignore();
+			getline(cin, userTitle);
+			for (int i = 0; i < bookCount; i++) {
+				if (library[i].getTitle() != userTitle) {
+					std::cout << "ERROR: You have not entered a book in the database(Capatilization and spelling are important)\n\n" << std::endl;
+					break;
+				}
+			}
+			inventory().deleteABook(library, bookCount, userTitle);
+			break;
+		case 5:
+			returnToMainMenu(library, bookCount);
+		default:
+			std::cout << "Error in choice. Please enter one of the choices listed.\n\n" << std::endl;
+			break;
+		}
 	}
 }
 //The report module screen
+
 void reportMenu(Books library[], int bookCount) {
-	int userChoice;
-	std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\t\tReports" << std::endl;
-	std::cout << "\t\t\t\t\t1. Inventory Listing" << std::endl;
-	std::cout << "\t\t\t\t\t2. Inventory Wholesale Value" << std::endl;
-	std::cout << "\t\t\t\t\t3. Inventory Retail Value" << std::endl;
-	std::cout << "\t\t\t\t\t4. Listing by Quantity" << std::endl;
-	std::cout << "\t\t\t\t\t5. Listing by Cost" << std::endl;
-	std::cout << "\t\t\t\t\t6. Listing by Age" << std::endl;
-	std::cout << "\t\t\t\t\t7. Return to Main Menu" << std::endl;
-	std::cout << "\n\t\t\t\t\tEnter Your Choice: " << std::endl;
-	std::cin >> userChoice;
-	switch (userChoice) {
-	case 1:
-		report().inventoryListing();
-		break;
-	case 2:
-		report().inventoryWholeSaleValue();
-		break;
-	case 3:
-		report().inventoryRetailValue();
-		break;
-	case 4:
-		report().listingByQuantity();
-		break;
-	case 5:
-		report().listingByCost();
-		break;
-	case 6:
-		report().listingByAge();
-		break;
-	case 7:
-		returnToMainMenu(library, bookCount);
+	bool loop = true;
+	while (loop) {
+		int userChoice;
+		std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\t\tReports" << std::endl;
+		std::cout << "\t\t\t\t\t1. Inventory Listing" << std::endl;
+		std::cout << "\t\t\t\t\t2. Inventory Wholesale Value" << std::endl;
+		std::cout << "\t\t\t\t\t3. Inventory Retail Value" << std::endl;
+		std::cout << "\t\t\t\t\t4. Listing by Quantity" << std::endl;
+		std::cout << "\t\t\t\t\t5. Listing by Cost" << std::endl;
+		std::cout << "\t\t\t\t\t6. Listing by Age" << std::endl;
+		std::cout << "\t\t\t\t\t7. Return to Main Menu" << std::endl;
+		std::cout << "\n\t\t\t\t\tEnter Your Choice: " << std::endl;
+		std::cin >> userChoice;
+		std::cout << endl;
+		switch (userChoice) {
+		case 1:
+			report().inventoryListing(library, bookCount);
+			break;
+		case 2: {
+			double total = 0;
+			report().inventoryWholeSaleValue(library, bookCount, total);
+		}
+				break;
+		case 3: {
+			double total = 0;
+			report().inventoryRetailValue(library, bookCount, total);
+		}
+				break;
+		case 4: {
+			report().listingByQuantity(library, bookCount);
+		}
+				break;
+		case 5:
+			report().listingByCost(library, bookCount);
+			break;
+		case 6:
+			report().listingByAge(library, bookCount);
+			break;
+		case 7:
+			returnToMainMenu(library, bookCount);
+		default:
+			std::cout << "Error in choice. Please enter one of the choices listed.\n\n" << std::endl;
+			break;
+		}
 	}
 }
+
+
 //Function for all modules to return to main menu
 void returnToMainMenu(Books library[], int bookCount) {
 	mainMenu(library, bookCount);
@@ -159,7 +203,7 @@ void CashRegister(Books library[], int bookCount) {
 	time_t now = time(0);
 	char* dt = ctime(&now);
 
-	vector<cashRegister> cartBooks;
+	cashRegister cartCart[1024];
 
 	std::string isbn, title;
 	double price = 0;
@@ -174,16 +218,18 @@ void CashRegister(Books library[], int bookCount) {
 
 	std::cout << "\n\nCash Register\n=============\n\n";
 
-
-	//std::cout << "Qty\tISBN\t\tTitle\t\t\t\tPrice\t\tTotal" << std::endl;
-	//std::cout << "-----------------------------------------------------------------------------" << std::endl;
 	
+
 	bool loop = true;
 	while (loop) {
 		//Ask user for isbn or title
 		std::cout << "Would you like to purchase a book by..." << std::endl;
 		std::cout << "1.Title\n" << "2.ISBN\n" << "(enter 1 or 2)\n" << std::endl;
 		std::cin >> userChoice;
+		if (userChoice != 1 && userChoice != 2) {
+			std::cout << "ERROR: INCORRECT INPUT" << std::endl;
+			break;
+		}
 		std::cout << "" << std::endl;
 		//If user selects title
 		if (userChoice == 1) {
@@ -214,8 +260,13 @@ void CashRegister(Books library[], int bookCount) {
 
 			subTotal = quantityOfBooks * price; //grab the dollar amount of how many books user is buying
 			totalPriceOfBooks += subTotal; //add subtotal to the subtotal cart amount
-			cashRegister a = cashRegister(price, title, isbn, quantityOfBooks, subTotal); //create cashRegister object in order to push into vector holding list of bought books
-			cartBooks.push_back(a);
+
+			cartCart[counter].setpriceOfBook(price);
+			cartCart[counter].setnameOfBook(title);
+			cartCart[counter].setisbnOfBook(isbn);
+			cartCart[counter].setquantityOfBook(quantityOfBooks);
+			cartCart[counter].setTotalPrice(totalPriceOfBooks);
+			counter++;
 
 		}
 		else if(userChoice == 2){
@@ -250,28 +301,50 @@ void CashRegister(Books library[], int bookCount) {
 			subtractFromStockISBN(library, bookCount, quantityOfBooks, isbn); //Function to subtract the amount the user wants from the inventory
 
 			totalPriceOfBooks += subTotal;
-			cashRegister a = cashRegister(price, titleOfISBN, isbn, quantityOfBooks, subTotal);
-			cartBooks.push_back(a);
+			cartCart[counter].setpriceOfBook(price);
+			cartCart[counter].setnameOfBook(titleOfISBN);
+			cartCart[counter].setisbnOfBook(isbn);
+			cartCart[counter].setquantityOfBook(quantityOfBooks);
+			cartCart[counter].setTotalPrice(totalPriceOfBooks);
+			counter++;
 		}
 		std::cout << "\nWould you like to add another book? (y/n)" << std::endl;
+		std::string longestTitle;
 		std::cin >> ch;
-		if (ch == 'n') {
-			double taxOfBook = taxrate * totalPriceOfBooks;
-			std::cout << "Serendipity Book Sellers" << std::endl << std::endl;
-			std::cout << "Date: " << dt << std::endl << std::endl;
-			std::cout << "\n\nQty\tISBN\t\tTitle\t\t\t\t\tPrice\t\t\t\Total" << std::endl;
-			std::cout << "--------------------------------------------------------------------------------------" << std::endl;
-			for (int i = 0; i < cartBooks.size(); i++) {
-				cartBooks[i].printCart();
-				std::cout << "" << std::endl;
+		for (int i = 0; i < counter; i++) {
+			for (int j = 1; j < counter + 1; j++) {
+				if (cartCart[i] > cartCart[j]) {
+					longestTitle = cartCart[i].getnameOfBook();
+				}
+				else {
+					longestTitle = cartCart[j].getnameOfBook();
+				}
 			}
-			std::cout << "Subtotal: $" << setprecision(7) << totalPriceOfBooks << std::endl;
-			std::cout << "Tax: $" << setprecision(7) << taxOfBook << std::endl;
-			std::cout << "Total: $" << setprecision(9) << totalPriceOfBooks + taxOfBook << std::endl;
-			loop = false;
 		}
-		else {
-			counter++;
+		if (ch == 'n') {
+			int sizeOfLT = longestTitle.length();
+			double taxOfBook = taxrate * totalPriceOfBooks;
+			std::cout << "\n\nSerendipity Book Sellers" << std::endl << std::endl;
+			std::cout << "Date: " << dt;
+			std::cout << "Qty\t";
+			std::cout << std::left << std::setw(10) << "ISBN" << "\t";
+			std::cout << std::left << std::setw(sizeOfLT + 15) << "Title";
+			std::cout << "Price" << "\t";
+			std::cout << std::left << "Total" << std::endl;
+			std::cout << "--------------------------------------------------------------------------------------" << std::endl;
+			for (int i = 0; i < counter; i++) {
+				cartCart[i].printCart(sizeOfLT);
+			}
+			std::cout << "Subtotal: $";
+			printf("%.2f", totalPriceOfBooks);
+			std::cout << std::endl;
+			std::cout << "Tax: $";
+			printf("%.2f", taxOfBook);
+			std::cout << std::endl;
+			std::cout << "Total: $";
+			printf("%.2f", totalPriceOfBooks + taxOfBook);
+			std::cout << std::endl << std::endl << std::endl;
+			loop = false;
 		}
 	}
 }

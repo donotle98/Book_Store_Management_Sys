@@ -2,7 +2,6 @@
 #include "Books.h"
 
 Books::Books(){
-
 }
 Books::Books(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail) {
 	Number = number;
@@ -105,69 +104,17 @@ double Books::getRetail()
 {
 	return Retail;
 }
-void Books::print()
+void print(Books)
 {
 	std::cout << "" << std::endl;
-	std::cout << "#" << Number << " " << std::endl;
-	std::cout << ISBN << " " << std::endl;
-	std::cout << Title << " " << std::endl;
-	std::cout << Author << " " << std::endl;
-	std::cout << Publisher << " " << std::endl;
-	std::cout << Date << " " << std::endl;
-	std::cout << "Current Stock: " << Stock << " " << std::endl;
-	std::cout << "Wholesale Value: $" << Wholesale << " " << std::endl;
-	std::cout << "Retail Value: $" << Retail << " " << std::endl;
+	std::cout << "#" << Books().getNumber() << " " << std::endl;
+	std::cout << Books().getISBN() << " " << std::endl;
+	std::cout << Books().getTitle() << " " << std::endl;
+	std::cout << Books().getAuthor() << " " << std::endl;
+	std::cout << Books().getPublisher() << " " << std::endl;
+	std::cout << Books().getDate() << " " << std::endl;
+	std::cout << "Current Stock: " << Books().getStock() << " " << std::endl;
+	std::cout << "Wholesale Value: $" << Books().getWholesale() << " " << std::endl;
+	std::cout << "Retail Value: $" << Books().getRetail() << " " << std::endl;
 	std::cout << std::endl;
-}
-
-//Books(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail)
-void Books::getBookData(Books library[], int& numOfBooks, std::vector<Books> vLibrary) {
-	std::string isbn{};
-	std::string title;
-	std::string author;
-	std::string publisher;
-	int date{};
-	int stock{};
-	double wholesale{};
-	double retail{};
-	//std::vector<Books> library;
-	std::string line;
-	int number;
-	int i = 0;
-
-	std::ifstream infile;
-	infile.open("Booklist_Final.txt");
-
-	// Check for successful file open
-	if (!infile.is_open()) {
-		std::cout << "Error" << std::endl;
-		system("pause");
-		exit(0);
-	}
-	while (!infile.eof()) {
-		getline(infile, line);
-		number = std::stoi(line);
-		getline(infile, line);
-		isbn = line;
-		getline(infile, line);
-		title = line;
-		getline(infile, line);
-		author = line;
-		getline(infile, line);
-		publisher = line;
-		getline(infile, line);
-		date = std::stoi(line);
-		getline(infile, line);
-		stock = std::stoi(line);
-		getline(infile, line);
-		wholesale = std::stod(line);
-		getline(infile, line);
-		retail = std::stod(line);
-		getline(infile, line);
-		library[i].setBooks(number, isbn, title, author, publisher, date, stock, wholesale, retail);
-		Books a = Books(number, isbn, title, author, publisher, date, stock, wholesale, retail);
-		vLibrary.push_back(a);
-		i++;
-	}
-	infile.close();
 }

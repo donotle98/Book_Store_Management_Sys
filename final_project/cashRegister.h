@@ -12,9 +12,10 @@ private:
 	double subtotal;
 	double totalPriceOfBooks;
 public:
-	cashRegister() {}
+	cashRegister();
 	cashRegister(double price, std::string title, std::string isbn, int quantity, double totalPriceOfBooks);
-	void setCart(double price, std::string title, std::string isbn, int quantity, double t);
+	void setCart(double price, std::string title, std::string isbn, int quantity, double total);
+
 	//Accessors
 	void setpriceOfBook(double price);
 	void setnameOfBook(std::string name);
@@ -35,5 +36,8 @@ public:
 	double getTotalPrice();
 	void setNumberofBooksinCart(int n);
 	int getNumberofBooksinCart();
-	void printCart();
+	void printCart(int longest);
+	bool operator < (const cashRegister &);
+	bool operator > (const cashRegister &);
+
 };

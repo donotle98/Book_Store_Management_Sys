@@ -158,7 +158,7 @@ No Starch Press (September 24, 2019)
 9.09
 35.88
 
- 17
+17
 978-0316438960
 The Last Wish: Introducing the Witcher
 Andrzej Sapkowski                                                          
@@ -184,7 +184,7 @@ American Demon
 Kim Harrison                                                             
 Ace (June 16, 2020)
 05292007
-0
+10
 9.58
 18.60
  
@@ -250,7 +250,7 @@ Independently published (January 18, 2019)
 
 27
 978-1679527722
-Sleeping With Hitler’s Wife
+Sleeping With Hitler's Wife
 Gary L.M. Martin                                                      
 Independently published (December 22, 2019)
 12222019
@@ -350,7 +350,7 @@ Disney-Hyperion (April 7, 2020)
 
 37
 I978-1477825570
-My Sister’s Grave
+My Sister's Grave
 Robert Dugoni                                           
 Thomas & Mercer; Later Printing edition (November 1, 2014)
 11012014
@@ -400,7 +400,7 @@ DC Comics (February 11, 2020)
 
 42
 978-0593136607
-But Like Maybe Don’t?: What Not to Do When Dating: An Illustrated Guide
+But Like Maybe Don't?: What Not to Do When Dating: An Illustrated Guide
 Arianna Margulis                                            
 Rodale Books; Illustrated edition (February 4, 2020)
 02042020
@@ -430,7 +430,7 @@ Simon & Schuster (April 14, 2020)
 
 45
 978-0786965601
-Player’s Handbook(D&D)
+Player's Handbook(D&D)
 Wizard’s RPG Team                                           
 Wizards of the Coast; 5th edition (August 19, 2014)
 08142014
