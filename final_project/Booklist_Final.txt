@@ -3,7 +3,7 @@ I979-8602022469
 The Invisible Man
 H. G. Wells
 Publisher:Independently published (January 21, 2020)
-05232015
+2015
 30
 3
 6.75
@@ -13,7 +13,7 @@ Publisher:Independently published (January 21, 2020)
 Eragon
 Christopher Paolini
 Knopf Books for Young Readers (April 26, 2005)
-06222012
+2012
 418
 5
 10.24
@@ -23,7 +23,7 @@ Knopf Books for Young Readers (April 26, 2005)
 The Lightning Thief
 Rick Riordan
 Disney-Hyperion; 1 edition (April 1, 2006)
-12122012
+2012
 456
 2
 5.99
@@ -33,7 +33,7 @@ Disney-Hyperion; 1 edition (April 1, 2006)
 East of Eden
 John Steinbeck
 Penguin Classics; Reissue edition( October 1, 1992)
-11262016
+2016
 222
 6
 9.69
@@ -43,7 +43,7 @@ Penguin Classics; Reissue edition( October 1, 1992)
 The Great Gatsby
 F. Scott Fitzgerald
 Scribner (September 30, 2004)
-02232019
+2019
 649
 7
 11.17
@@ -53,7 +53,7 @@ Scribner (September 30, 2004)
 Fahrenheit 451
 Ray Bradbury
 Simon & Schuster; Reissue edition (January 10, 2012)
-09122012
+2012
 337
 4
 8.29
@@ -63,7 +63,7 @@ Simon & Schuster; Reissue edition (January 10, 2012)
 Hatchet
 Gary Paulsen
 Simon & Schuster Books for Young Readers; Reissue edition (December 26, 2006)
-06122009
+2009
 271
 2
 6.17
@@ -73,7 +73,7 @@ Simon & Schuster Books for Young Readers; Reissue edition (December 26, 2006)
 The Adventures of Huckleberry Finn
 Mark Twain
 Dover Publications; 1 edition (May 26, 1994)
-05252000
+2000
 42
 2
 5.99
@@ -83,7 +83,7 @@ Dover Publications; 1 edition (May 26, 1994)
 The Grapes of Wrath
 John Steinbeck
 Penguin Classics; Reissue edition (March 28, 2006)
-07182008
+2008
 316
 9
 12.29
@@ -93,7 +93,7 @@ Penguin Classics; Reissue edition (March 28, 2006)
 The Last Train from Hiroshima
 Charles Pellegrino
 Rowman & Littlefield Publishers; Reprint edition (January 7, 2019)
-01072019
+2019
 56
 10
 13.41
@@ -103,7 +103,7 @@ Rowman & Littlefield Publishers; Reprint edition (January 7, 2019)
 The Art of Racing in the Rain
 Author:Garth Stein
 Harper Perennial; 1st edition (May 22, 2018)
-04222018
+2018
 546
 8
 12.75
@@ -113,7 +113,7 @@ Harper Perennial; 1st edition (May 22, 2018)
 When the Emperor Was Divine
 Julie Otsuka
 Anchor (October 14, 2003)
-10142003
+2003
 325
 5
 8.99
@@ -123,7 +123,7 @@ Anchor (October 14, 2003)
 1984
 George Orwell                               
 Signet Classic(January 1, 1961)
-08191988
+1988
 345
 4.14
 7.58
@@ -133,7 +133,7 @@ Signet Classic(January 1, 1961)
 Are Prisons Obsolete?
 Angela Y. Davis                                              
 Seven Stories Press; Uitgawe and Revised and Updated to Include New Develop and B edition (April 2003)
-02282008
+2008
 25
 5.78
 11.99
@@ -143,7 +143,7 @@ Seven Stories Press; Uitgawe and Revised and Updated to Include New Develop and 
 World of Warcraft Chronicle Volume 2
 BLIZZARD ENTERTAINMENT                                                           
 Dark Horse Books (March 14, 2017)
-06152016
+2016
 28
 17.16
 25.95
@@ -153,17 +153,17 @@ Dark Horse Books (March 14, 2017)
 C++ Crash Course: A Fast-Paced Introduction
 Josh Lospinoso                                                           
 No Starch Press (September 24, 2019)
-03192006
+2006
 30
 9.09
 35.88
 
-17
+ 17
 978-0316438960
 The Last Wish: Introducing the Witcher
 Andrzej Sapkowski                                                          
 Orbit (July 18, 2017)
-04171999
+1999
 18
 10.02
 15.29
@@ -173,7 +173,7 @@ Orbit (July 18, 2017)
 Peace Talks (Dresden Files)
 Jim Butcher                                                          
 Ace (July 14, 2020)
-12012002
+2002
 1
 10.63
 25.20
@@ -183,8 +183,8 @@ Ace (July 14, 2020)
 American Demon
 Kim Harrison                                                             
 Ace (June 16, 2020)
-05292007
-10
+2007
+0
 9.58
 18.60
  
@@ -193,7 +193,7 @@ Ace (June 16, 2020)
 Born a Crime: Stories from a South African Childhood
 Trevor Noah                                                             
 Spiegel & Grau; Later Printing edition (November 15, 2016)
-06282006
+2006
 45
 2.89
 9.00
@@ -203,7 +203,7 @@ Spiegel & Grau; Later Printing edition (November 15, 2016)
 The Greatest Love Story Ever Told: An Oral History
 Megan Mulally, Nick Offerman                                                             
 Dutton (October 2, 2018)
-08222014
+2014
 47
 4.60
 8.17
@@ -213,7 +213,7 @@ Dutton (October 2, 2018)
 Starting Strength: Basic Barbell Training, 3rd edition
 Mark Rippetoe                                               
 The Aasgaard Company; 3rd edition (November 11, 2011)
-01011988
+1988
 10
 15.31
 23.98
@@ -223,7 +223,7 @@ The Aasgaard Company; 3rd edition (November 11, 2011)
 Timeless: A Drizzt Novel
 R.A. Salvatore                                                              
 Harper Voyager; 1st edition (September 4, 2018)
-09042018
+2018
 55
 3.50
 7.99
@@ -233,7 +233,7 @@ Harper Voyager; 1st edition (September 4, 2018)
 Epoch
 Scott Finlay                                                  
 Independently published (July 24, 2019)
-07242019
+2019
 62
 5.78
 11.12
@@ -243,17 +243,17 @@ Independently published (July 24, 2019)
 The Antithesis: Inception
 Terra Whiteman                                                          
 Independently published (January 18, 2019)
-01182019
+2019
 12
 3.45
 8.94
 
 27
 978-1679527722
-Sleeping With Hitler's Wife
+Sleeping With Hitler’s Wife
 Gary L.M. Martin                                                      
 Independently published (December 22, 2019)
-12222019
+2019
 51
 12.30
 21.12
@@ -263,7 +263,7 @@ Independently published (December 22, 2019)
 The Time Machine
 H.G. Wells                                                    
 SDE Classics (November 7, 2018)
-11072018
+2018
 12
 1.23
 5.27
@@ -273,7 +273,7 @@ SDE Classics (November 7, 2018)
 Unlawful Presence: A Killer Robot
 William A. Lasher                                    
 Independently published (October 14, 2019)
-08142019
+2019
 5
 4.23
 9.85
@@ -283,7 +283,7 @@ Independently published (October 14, 2019)
 Into Neon: A Cyberpunk Saga
 Mathew A. Goodwin                                        
 Bowker (July 4, 2019)
-07042019
+2019
 16
 6.45
 17.02
@@ -293,7 +293,7 @@ Bowker (July 4, 2019)
 Punishment Without Crime
 Alexandra Natapoff                                           
 Basic Books (December 31, 2018)
-12312018
+2018
 17
 7.63
 18.50
@@ -303,7 +303,7 @@ Basic Books (December 31, 2018)
 The Big Goodbye: Chinatown and the Last Years of Hollywood
 Sam Wasson                                           
 Flatiron Books (February 4, 2020)
-02042020
+2020
 16
 10.87
 20.00
@@ -313,7 +313,7 @@ Flatiron Books (February 4, 2020)
 Facebook: The Inside Story
 Steven Levy                                           
 Blue Rider Press (February 25, 2020)
-02252020
+2020
 25
 9.88
 21.47
@@ -323,7 +323,7 @@ Blue Rider Press (February 25, 2020)
 Miss You Love You Hate You Bye
 Abby Sher                                           
 Farrar, Straus and Giroux (BYR) (February 18, 2020)
-02182020
+2020
 14
 5.69
 18.99
@@ -333,7 +333,7 @@ Farrar, Straus and Giroux (BYR) (February 18, 2020)
 Legacy and the Queen
 Annie Mathew                                            
 Granity Studios; 1 edition (September 3, 2019)
-09032019
+2019
 4
 6.45
 12.36
@@ -343,17 +343,17 @@ Granity Studios; 1 edition (September 3, 2019)
 So This is Love: A Twisted Tale
 Elizabeth Lim                                           
 Disney-Hyperion (April 7, 2020)
-04072020
+2020
 6
 7.33
 14.28
 
 37
 I978-1477825570
-My Sister's Grave
+My Sister’s Grave
 Robert Dugoni                                           
 Thomas & Mercer; Later Printing edition (November 1, 2014)
-11012014
+2014
 9
 7.52
 16.48
@@ -363,7 +363,7 @@ Thomas & Mercer; Later Printing edition (November 1, 2014)
 Season of Storms (The Witcher)
 Andrzej Sapkowski                                          
 Orbit; Reprint edition (November 6, 2018)
-11062018
+2018
 11
 8.22
 19.23
@@ -373,7 +373,7 @@ Orbit; Reprint edition (November 6, 2018)
 One-Punch Man, Vol.19
 ONE                                       
 VIZ Media LLC (March 3, 2020)
-03032020
+2020
 20
 4.02
 9.99
@@ -383,7 +383,7 @@ VIZ Media LLC (March 3, 2020)
 Complete Deluxe Edition
 Junji Ito                                            
 VIZ Media LLC; Deluxe edition (December 20, 2016)
-12202016
+2016
 14
 6.89
 17.62
@@ -393,17 +393,17 @@ VIZ Media LLC; Deluxe edition (December 20, 2016)
 Harleen
 Stjepan Sejic                                            
 DC Comics (February 11, 2020)
-02112020
+2020
 7
 12.12
 22.96
 
 42
 978-0593136607
-But Like Maybe Don't?: What Not to Do When Dating: An Illustrated Guide
+But Like Maybe Don’t?: What Not to Do When Dating: An Illustrated Guide
 Arianna Margulis                                            
 Rodale Books; Illustrated edition (February 4, 2020)
-02042020
+2020
 5
 5.55
 8.94
@@ -413,7 +413,7 @@ Rodale Books; Illustrated edition (February 4, 2020)
 Hands-On Machine Learning with Scikit-Learn, Keras, And TensorFlow
 Aurelien Geron                                           
 O'Reilly Media; 2 edition (October 15, 2019)
-06252020
+2020
 26 
 18.23
 36.58
@@ -423,17 +423,17 @@ O'Reilly Media; 2 edition (October 15, 2019)
 Think Like a Monk: Train Your Mind for Peace and Purpose Every Day
 Jay Shetty                                           
 Simon & Schuster (April 14, 2020)
-04142020
+2020
 4
 6.35
 14.75
 
 45
 978-0786965601
-Player's Handbook(D&D)
-Wizardâ€™s RPG Team                                           
+Player’s Handbook(D&D)
+Wizard’s RPG Team                                           
 Wizards of the Coast; 5th edition (August 19, 2014)
-08142014
+2014
 6
 9.40
 30.25
@@ -443,7 +443,7 @@ Wizards of the Coast; 5th edition (August 19, 2014)
 The Elder Scrolls: The Official Cookbook
 Chelsea Monroe-Cassel                                            
 Insight Editions (March 26, 2019)
-03262019
+2019
 19
 12.33
 23.45
@@ -453,7 +453,7 @@ Insight Editions (March 26, 2019)
 The Scent Keeper
 Erica Bauermeister                                            
 Griffin; Reprint edition (February 4, 2020)
-02042020
+2020
 22 
 6.95
 15.24
@@ -463,7 +463,7 @@ Griffin; Reprint edition (February 4, 2020)
 House of Earth and Blood(Crescent City)
 Sarah J. Maas                                            
 Bloomsbury Publishing (March 3, 2020) 
-03032020
+2020
 7
 5.98
 14.52
@@ -473,7 +473,7 @@ Bloomsbury Publishing (March 3, 2020)
 Forgotten (House of Night Other World Series, Book 3)
 P.C. Cast                                            
 Blackstone Publishing; Unabridged edition (October 29, 2019)
-10292019
+2019
 19
 7.77
 15.89
@@ -483,7 +483,7 @@ Blackstone Publishing; Unabridged edition (October 29, 2019)
 Misfit Pack (Cursed World)
 Stephanie Foxe                                           
 Steel Fox Media LLC (August 29, 2018)
-08292018
+2018
 33
 3.69
 12.71

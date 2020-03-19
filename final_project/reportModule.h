@@ -1,3 +1,10 @@
+/*
+Header files for reportModule.h
+Declares the Functions here
+Declares all data members within functions
+Holds template to call upon in reportModule.cpp
+*/
+
 #include "Header.h"
 #include "Books.h"
 class report : public Books {

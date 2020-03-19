@@ -1,3 +1,8 @@
+/*
+Declarations of all functions in this
+Calls upon these in main cpp
+*/
+
 #include "Header.h"
 
 class cashRegister {

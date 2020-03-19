@@ -1,6 +1,12 @@
+/*
+Header files for .h
+Declares the Functions here
+Declares all data members within functions
+*/
+
 #include "Header.h"
 #include "Books.h"
-class inventory : public Books{
+class inventory : public Books {
 private:
 
 public:
@@ -14,3 +20,4 @@ public:
 	// Function to delete a book from the database, including subtracting the quantity of the book from the total quantity
 	void deleteABook(Books library[], int bookCount, std::string title);
 };
+

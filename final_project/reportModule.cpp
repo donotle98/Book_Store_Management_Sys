@@ -1,3 +1,9 @@
+/*
+Functions for reportModule files
+Calls upon each one in main cpp if selected
+Prints out
+*/
+
 #include "Header.h"
 #include "reportModule.h"
 #include "Books.h"

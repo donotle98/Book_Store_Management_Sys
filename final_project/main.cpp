@@ -1,3 +1,8 @@
+/*
+-Display main menu screen
+-User can select from options
+-Cash Register, Inventory, report module will be called from their respective classes
+*/
 #include "Header.h"
 #include "Books.h"
 #include "cashRegister.h"
@@ -5,15 +10,6 @@
 #include "inventory.h"
 using namespace std;
 
-/*
--Friend functions
--Templates //done
--nonfriend operator overloading //done
--polymorhism
--inheritance //done
--classes //done
--exception handling
-*/
 
 //Main Menu functions
 void mainMenu(Books library[], int bookCount);
@@ -36,7 +32,8 @@ void subtractFromStockISBN(Books library[], int bookCount, int userAmount, std::
 
 int main() {
 	static Books library[1024]; //Create array of Books
-	int bookNumber = 49; //Initialize amount of book space
+	int bookNumber = 50; //Initialize amount of book space
+	Books().getBookData(library, bookNumber);
 	mainMenu(library, bookNumber);
 	cout << "End of Program" << endl;
 	cout << "---------------" << endl;
@@ -59,6 +56,7 @@ void mainMenu(Books library[], int bookCount) {
 		cin >> userMainMenuChoice;
 		bool loop = true;
 
+		//switch statement for user choices
 		switch (userMainMenuChoice) {
 		case 1:
 			CashRegister(library, bookCount);
@@ -97,41 +95,26 @@ void inventoryMenu(Books library[], int bookCount) {
 		std::cin >> userChoice;
 		switch (userChoice) {
 		case 1:
-			std::cout << "Enter the title of the book you would like to search: " << std::endl;
+			//grab the title from the user here and pass into the function
+			std::cout << "Enter the title of the book you would like to search: (Capatilization and spelling are important)" << std::endl;
 			std::cin.ignore();
 			getline(cin, userTitle);
-			for (int i = 0; i < bookCount; i++) {
-				if (library[i].getTitle() != userTitle) {
-					std::cout << "ERROR: You have not entered a book in the database(Capatilization and spelling are important)\n\n" << std::endl;
-					break;
-				}
-			}
 			inventory().lookUpABook(library, bookCount, userTitle);
 			break;
 		case 2:
 			inventory().addABook(library, bookCount);
+			loop = false;
+			break;
 		case 3:
 			std::cout << "Enter the title of the book you would like to search: " << std::endl;
 			std::cin.ignore();
 			getline(cin, userTitle);
-			for (int i = 0; i < bookCount; i++) {
-				if (library[i].getTitle() != userTitle) {
-					std::cout << "ERROR: You have not entered a book in the database(Capatilization and spelling are important)\n\n" << std::endl;
-					break;
-				}
-			}
 			inventory().editABooksRecord(library, bookCount, userTitle);
 			break;
 		case 4:
 			std::cout << "Enter the title of the book you would like to delete: " << std::endl;
 			std::cin.ignore();
 			getline(cin, userTitle);
-			for (int i = 0; i < bookCount; i++) {
-				if (library[i].getTitle() != userTitle) {
-					std::cout << "ERROR: You have not entered a book in the database(Capatilization and spelling are important)\n\n" << std::endl;
-					break;
-				}
-			}
 			inventory().deleteABook(library, bookCount, userTitle);
 			break;
 		case 5:
@@ -203,6 +186,7 @@ void CashRegister(Books library[], int bookCount) {
 	time_t now = time(0);
 	char* dt = ctime(&now);
 
+	//create another array for just the user's cart
 	cashRegister cartCart[1024];
 
 	std::string isbn, title;
@@ -219,7 +203,7 @@ void CashRegister(Books library[], int bookCount) {
 	std::cout << "\n\nCash Register\n=============\n\n";
 
 	
-
+	//entire cash register will be in a loop to allow user to continuously add books to cart
 	bool loop = true;
 	while (loop) {
 		//Ask user for isbn or title
@@ -308,6 +292,7 @@ void CashRegister(Books library[], int bookCount) {
 			cartCart[counter].setTotalPrice(totalPriceOfBooks);
 			counter++;
 		}
+		//Ask user to loop the cart
 		std::cout << "\nWould you like to add another book? (y/n)" << std::endl;
 		std::string longestTitle;
 		std::cin >> ch;
@@ -321,6 +306,7 @@ void CashRegister(Books library[], int bookCount) {
 				}
 			}
 		}
+		//If user selects 'n' then program will display cart contents as a reciept
 		if (ch == 'n') {
 			int sizeOfLT = longestTitle.length();
 			double taxOfBook = taxrate * totalPriceOfBooks;

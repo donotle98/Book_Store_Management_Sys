@@ -1,3 +1,7 @@
+/***********************************
+Inventory’s functions will be accessed in the main cpp by selecting a function which will call upon inherited class features to collect, modify, and show data to the user.
+***********************************/
+
 #include "Header.h"
 #include "inventory.h"
 
@@ -27,27 +31,25 @@ void inventory::addABook(Books library[], int bookCount) {
 		}
 	}
 	int finalNumber = number + 1;
-	std::cout << "ISBN: " << std::endl;
 	std::cin.ignore();
+	std::cout << "ISBN: " << std::endl;
 	getline(std::cin, ISBN);
 	std::cout << "Title: " << std::endl;
-	std::cin.ignore();
 	getline(std::cin, Title);
 	std::cout << "Author: " << std::endl;
-	std::cin.ignore();
 	getline(std::cin, Author);
 	std::cout << "Publisher: " << std::endl;
-	std::cin.ignore();
 	getline(std::cin, Publisher);
 	std::cout << "Enter in Date, Stock, Wholesale, then Retail: " << std::endl;
 	std::cin >> Date >> Stock >> Wholesale >> Retail;
-	//std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail
-	Books(finalNumber, ISBN, Title, Author, Publisher, Date, Stock, Wholesale, Retail);
-	library[number + 1].setBooks(finalNumber, ISBN, Title, Author, Publisher, Date, Stock, Wholesale, Retail);
+	//This will go to the end of the array and create a new book object
+	library[number - 1].setBooks(finalNumber, ISBN, Title, Author, Publisher, Date, Stock, Wholesale, Retail);
+	//function to print out the new list
 	for (int i = 0; i < number + 2; i++) {
 		library[i].print();
 	}
 }
+
 // Function to edit a book within its database, need to ask use which of the attributes they would like to edit
 void inventory::editABooksRecord(Books library[], int bookCount, std::string title) {
 	std::string userChoice;
@@ -87,7 +89,7 @@ void inventory::editABooksRecord(Books library[], int bookCount, std::string tit
 		std::string newAuthor;
 		std::cout << "What new Author would you like to change it to?" << std::endl;
 		std::cin.ignore();
-		getline(std::cin, newAuthor); 
+		getline(std::cin, newAuthor);
 		for (int i = 0; i < bookCount; i++) {
 			if (library[i].getTitle() == title) {
 				library[i].setAuthor(newAuthor);
@@ -99,7 +101,7 @@ void inventory::editABooksRecord(Books library[], int bookCount, std::string tit
 		std::string newPublisher;
 		std::cout << "What new Publisher would you like to change it to?" << std::endl;
 		std::cin.ignore();
-		getline(std::cin, newPublisher); 
+		getline(std::cin, newPublisher);
 		for (int i = 0; i < bookCount; i++) {
 			if (library[i].getTitle() == title) {
 				library[i].setPublisher(newPublisher);
@@ -174,6 +176,8 @@ void inventory::deleteABook(Books library[], int bookCount, std::string title) {
 	for (int i = 0; i < bookCount; i++) {
 		library[i].print();
 	}
-	
+
 
 }
+
+
