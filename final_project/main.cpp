@@ -3,6 +3,7 @@
 -User can select from options
 -Cash Register, Inventory, report module will be called from their respective classes
 */
+#define _CRT_SECURE_NO_WARNINGS
 #include "Header.h"
 #include "Books.h"
 #include "cashRegister.h"
@@ -10,19 +11,15 @@
 #include "inventory.h"
 using namespace std;
 
-
 //Main Menu functions
 void mainMenu(Books library[], int bookCount);
 void returnToMainMenu(Books library[], int bookCount);
 
-
 //Inventory functions
 void inventoryMenu(Books library[], int bookCount);
 
-
 //Report functions
 void reportMenu(Books library[], int bookCount);
-
 
 //Cash Register functions
 void CashRegister(Books library[], int bookCount);
@@ -33,7 +30,7 @@ void subtractFromStockISBN(Books library[], int bookCount, int userAmount, std::
 int main() {
 	static Books library[1024]; //Create array of Books
 	int bookNumber = 50; //Initialize amount of book space
-	Books().getBookData(library, bookNumber);
+	getBookData(library, bookNumber); //friend of Books class
 	mainMenu(library, bookNumber);
 	cout << "End of Program" << endl;
 	cout << "---------------" << endl;
@@ -47,6 +44,7 @@ void mainMenu(Books library[], int bookCount) {
 	bool loop = true;
 	while (loop) {
 		int userMainMenuChoice;
+		std::cout << std::endl << std::endl << std::endl << std::endl;
 		cout << "\t\t\t\t\tSerendipity Booksellers" << endl << "\t\t\t\t\t\tMain Menu" << endl;
 		cout << "\t\t\t\t\t1. Cashier Module" << endl;
 		cout << "\t\t\t\t\t2. Inventory Database Module" << endl;
@@ -55,7 +53,6 @@ void mainMenu(Books library[], int bookCount) {
 		cout << "\n\t\t\t\t\tEnter Your Choice (1, 2, 3, 4): " << endl;
 		cin >> userMainMenuChoice;
 		bool loop = true;
-
 		//switch statement for user choices
 		switch (userMainMenuChoice) {
 		case 1:
@@ -75,9 +72,6 @@ void mainMenu(Books library[], int bookCount) {
 			break;
 		}
 	}
-
-
-	
 }
 //The inventory module screen
 void inventoryMenu(Books library[], int bookCount) {
@@ -85,6 +79,7 @@ void inventoryMenu(Books library[], int bookCount) {
 	while (loop) {
 		std::string userTitle;
 		int userChoice;
+		std::cout << std::endl << std::endl;
 		std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\tInventory Database" << std::endl;
 		std::cout << "\t\t\t\t\t1. Look Up a Book" << std::endl;
 		std::cout << "\t\t\t\t\t2. Add a Book" << std::endl;
@@ -103,7 +98,6 @@ void inventoryMenu(Books library[], int bookCount) {
 			break;
 		case 2:
 			inventory().addABook(library, bookCount);
-			loop = false;
 			break;
 		case 3:
 			std::cout << "Enter the title of the book you would like to search: " << std::endl;
@@ -131,7 +125,8 @@ void reportMenu(Books library[], int bookCount) {
 	bool loop = true;
 	while (loop) {
 		int userChoice;
-		std::cout << "\t\t\t\t\tSerendipity Booksellers" << std::endl << "\t\t\t\t\t\tReports" << std::endl;
+		std::cout << std::endl << std::endl;
+		std::cout << "\t\t\t\t\t Serendipity Booksellers" << std::endl << "\t\t\t\t\t\tReports" << std::endl;
 		std::cout << "\t\t\t\t\t1. Inventory Listing" << std::endl;
 		std::cout << "\t\t\t\t\t2. Inventory Wholesale Value" << std::endl;
 		std::cout << "\t\t\t\t\t3. Inventory Retail Value" << std::endl;
@@ -310,9 +305,10 @@ void CashRegister(Books library[], int bookCount) {
 		if (ch == 'n') {
 			int sizeOfLT = longestTitle.length();
 			double taxOfBook = taxrate * totalPriceOfBooks;
+			std::cout << std::endl << std::endl;
 			std::cout << "\n\nSerendipity Book Sellers" << std::endl << std::endl;
-			std::cout << "Date: " << dt;
-			std::cout << "Qty\t";
+			std::cout << "\nDate: " << dt;
+			std::cout << "\nQty\t";
 			std::cout << std::left << std::setw(10) << "ISBN" << "\t";
 			std::cout << std::left << std::setw(sizeOfLT + 15) << "Title";
 			std::cout << "Price" << "\t";

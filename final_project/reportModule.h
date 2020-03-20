@@ -18,7 +18,7 @@ public:
 	void listingByQuantity(Books library[], int bookCount);
 	void listingByCost(Books library[], int bookCount);
 	void listingByAge(Books library[], int bookCount);
-	//template
+	//Function tmeplates for selection sort
 	template<class T>
 	void selection(T a[], int n, int func)
 	{

@@ -7,16 +7,16 @@ Extracting object data from the text file and creating a class to store all the 
 
 class Books {
 private:
-	int Number;
+	int Number = 0;
 	std::string ISBN;
 	std::string Title;
 	std::string Author;
 	std::string Publisher;
-	int Date;
-	int Stock;
-	int Quantity;
-	double Wholesale;
-	double Retail;
+	int Date = 0;
+	int Stock = 0;
+	int Quantity = 0;
+	double Wholesale = 0;
+	double Retail = 0;
 
 public:
 	Books();
@@ -51,7 +51,10 @@ public:
 	double getRetail();
 
 	void print();
-	void getBookData(Books library[], int& numOfBooks);
+	//Polymorphism used to print out title, instead of everything
+	void print(Books library[], int bookCount, std::string title);
+	//Friend function to call file read from outside the class
+	friend void getBookData(Books library[], int& numOfBooks);
 };
 
 #endif books_header

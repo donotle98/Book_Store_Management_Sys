@@ -3,31 +3,32 @@ Functions for reportModule files
 Calls upon each one in main cpp if selected
 Prints out
 */
-
+#define _CRT_SECURE_NO_WARNINGS
 #include "Header.h"
 #include "reportModule.h"
 #include "Books.h"
 //A list of information on all books in the inventory.
 void report::inventoryListing(Books library[], int bookCount) {
-	for (int i = 0; i < bookCount; i++)
+	for (int i = 0; i < bookCount - 1; i++)
 		library[i].print();
 }
 //A  list  of  the  wholesale  value  of  all  books  in  the  inventory and the total wholesale value of the inventory. 
 void report::inventoryWholeSaleValue(Books library[], int bookCount, double total) {
 	double cutiepiesean = 0;
-	for (int i = 0; i < bookCount; i++) {
+	for (int i = 0; i < bookCount - 1; i++) {
 		cutiepiesean += library[i].getWholesale();
 		std::cout << library[i].getTitle() << std::endl;
 		std::cout << std::right << std::setw(85) << " $" << library[i].getWholesale() << std::endl;
 	}
 
 	total = cutiepiesean;
-	std::cout << std::setw(85) << "Total of Whole sale values: $" << total;
+	std::cout << std::setw(85) << "Total of Wholesale values: $" << total;
+	std::cout << std::endl << std::endl;
 }
 //A  list  of  the  retail  value  of  all  books  in  the  inventory  and the total retail value of the inventory. 
 void report::inventoryRetailValue(Books library[], int bookCount, double total) {
 	double sadboy = 0;
-	for (int i = 0; i < bookCount; i++) {
+	for (int i = 0; i < bookCount - 1; i++) {
 		sadboy += library[i].getRetail();
 		std::cout << library[i].getTitle() << std::endl;
 		std::cout << std::right << std::setw(85) << " $" << library[i].getRetail() << std::endl;
@@ -35,28 +36,32 @@ void report::inventoryRetailValue(Books library[], int bookCount, double total) 
 
 	total = sadboy;
 	std::cout << std::setw(85) << "Total of Retail values: $" << total;
+	std::cout << std::endl << std::endl;
 }
 //A list of all books in the inventory sorted by quantity on hand.  The books with the greatest quantity on hand will be listed first. 
 void report::listingByQuantity(Books library[], int bookCount) {
 	std::cout << "Title: " << std::setw(80) << "Quantity: " << std::endl;
 	selection(library, bookCount, 1);
-	for (int i = 0; i < bookCount; i++)
+	for (int i = 0; i < bookCount - 1; i++)
 		std::cout << library[i].getTitle() << std::endl << std::setw(80) << " " << library[i].getStock() << std::endl;
+	std::cout << std::endl << std::endl;
 
 }
 //A list of all books in the inventory, sorted by wholesale cost. The books with the greatest wholesale cost will be listed first. 
 void report::listingByCost(Books library[], int bookCount) {
 	std::cout << "Title: " << std::setw(80) << "WholeSale: " << std::endl;
 	selection(library, bookCount, 2);
-	for (int i = 0; i < bookCount; i++)
+	for (int i = 0; i < bookCount - 1; i++)
 		std::cout << library[i].getTitle() << std::endl << std::setw(80) << " $" << library[i].getWholesale() << std::endl;
+	std::cout << std::endl << std::endl;
 }
 //A  list  of  all  books  in  the  inventory,  sorted  by  purchase  date.  The  books that have been in the inventory longest will be listed first. 
 void report::listingByAge(Books library[], int bookCount) {
 	std::cout << "Title: " << std::setw(80) << "Date: " << std::endl;
 	selection(library, bookCount, 3);
-	for (int i = 0; i < bookCount; i++)
+	for (int i = 0; i < bookCount - 1; i++)
 		std::cout << library[i].getTitle() << std::endl << std::setw(80) << " " << library[i].getDate() << std::endl;
+	std::cout << std::endl << std::endl;
 }
 
 

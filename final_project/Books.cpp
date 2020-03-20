@@ -1,8 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Header.h"
 #include "Books.h"
 
-Books::Books() {
-}
+Books::Books(){}
 Books::Books(int number, std::string isbn, std::string title, std::string author, std::string publisher, int date, int stock, double wholesale, double retail) {
 	Number = number;
 	ISBN = isbn;
@@ -119,9 +119,16 @@ void Books::print()
 	std::cout << "Retail Value: $" << Retail << " " << std::endl;
 	std::cout << std::endl;
 }
+void Books::print(Books library[], int bookCount, std::string title) {
+	for (int i = 0; i < bookCount; i++) {
+		if (library[i].getTitle() == title) {
+			library[i].print();
+		}
+	}
+}
 
 //Function to read book text file into an array of books
-void Books::getBookData(Books library[], int& numOfBooks) {
+void getBookData(Books library[], int& numOfBooks) {
 	std::string isbn{};
 	std::string title;
 	std::string author;
@@ -144,6 +151,7 @@ void Books::getBookData(Books library[], int& numOfBooks) {
 		exit(0);
 	}
 	while (!infile.eof()) {
+		//Exception handling Try catch file read
 		//If there is an exception with reading in lines
 		try {
 			getline(infile, line);
@@ -168,7 +176,7 @@ void Books::getBookData(Books library[], int& numOfBooks) {
 			library[i].setBooks(number, isbn, title, author, publisher, date, stock, wholesale, retail);
 			i++;
 		}
-		catch (const std::invalid_argument & e) {
+		catch (const std::invalid_argument) {
 			std::cout << "Reading exception thrown\n";
 		}
 

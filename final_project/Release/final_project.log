@@ -1,0 +1,19 @@
+﻿  Books.cpp
+c:\users\dtle6\source\repos\final_project\final_project\books.cpp(1): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\dtle6\source\repos\final_project\final_project\books.cpp: note: see previous definition of '_CRT_SECURE_NO_WARNINGS'
+  cashRegister.cpp
+c:\users\dtle6\source\repos\final_project\final_project\cashregister.cpp(1): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\dtle6\source\repos\final_project\final_project\cashregister.cpp: note: see previous definition of '_CRT_SECURE_NO_WARNINGS'
+  inventory.cpp
+c:\users\dtle6\source\repos\final_project\final_project\inventory.cpp(4): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\dtle6\source\repos\final_project\final_project\inventory.cpp: note: see previous definition of '_CRT_SECURE_NO_WARNINGS'
+  main.cpp
+c:\users\dtle6\source\repos\final_project\final_project\main.cpp(6): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\dtle6\source\repos\final_project\final_project\main.cpp: note: see previous definition of '_CRT_SECURE_NO_WARNINGS'
+  reportModule.cpp
+c:\users\dtle6\source\repos\final_project\final_project\reportmodule.cpp(6): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\dtle6\source\repos\final_project\final_project\reportmodule.cpp: note: see previous definition of '_CRT_SECURE_NO_WARNINGS'
+  Generating code
+  All 267 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  final_project.vcxproj -> C:\Users\dtle6\source\repos\final_project\Release\final_project.exe

@@ -1,0 +1,10 @@
+﻿  Books.cpp
+  cashRegister.cpp
+  inventory.cpp
+  main.cpp
+c:\users\dtle6\source\repos\final_project\final_project\main.cpp(306): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  reportModule.cpp
+  Generating code
+  All 268 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  final_project.vcxproj -> C:\Users\dtle6\source\repos\final_project\x64\Release\final_project.exe

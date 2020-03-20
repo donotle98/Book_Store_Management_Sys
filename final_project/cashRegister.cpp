@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Header.h"
 #include <iomanip>
 #include "cashRegister.h"
@@ -97,7 +98,7 @@ void cashRegister::setCart(double price, std::string title, std::string isbn, in
 void cashRegister::printCart(int longest) {
 	std::cout << quantityOfBook << "\t"; //display quantity
 	std::cout << isbnOfBook << "\t"; //display ISBN //left << setw(10) << 
-	std::cout << std::setw(longest + 15) << nameOfBook; //display title //left << setw(20) << 
+	std::cout << std::setw(15 + longest) << nameOfBook; //display title //left << setw(20) << 
 	std::cout << priceOfBook << "\t"; //display price //left << setw(30) << 
 	//std::cout << totalPriceOfBooks << std::endl;
 	printf("%.2f", totalPriceOfBooks);

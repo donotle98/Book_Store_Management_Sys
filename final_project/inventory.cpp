@@ -1,17 +1,13 @@
 /***********************************
 Inventory’s functions will be accessed in the main cpp by selecting a function which will call upon inherited class features to collect, modify, and show data to the user.
 ***********************************/
-
+#define _CRT_SECURE_NO_WARNINGS
 #include "Header.h"
 #include "inventory.h"
 
 
 void inventory::lookUpABook(Books library[], int bookCount, std::string title) {
-	for (int i = 0; i < bookCount; i++) {
-		if (library[i].getTitle() == title) {
-			library[i].print();
-		}
-	}
+	Books().print(library, bookCount, title);
 }
 // Function to add a book to the database
 void inventory::addABook(Books library[], int bookCount) {
@@ -44,10 +40,6 @@ void inventory::addABook(Books library[], int bookCount) {
 	std::cin >> Date >> Stock >> Wholesale >> Retail;
 	//This will go to the end of the array and create a new book object
 	library[number - 1].setBooks(finalNumber, ISBN, Title, Author, Publisher, Date, Stock, Wholesale, Retail);
-	//function to print out the new list
-	for (int i = 0; i < number + 2; i++) {
-		library[i].print();
-	}
 }
 
 // Function to edit a book within its database, need to ask use which of the attributes they would like to edit
@@ -161,7 +153,7 @@ void inventory::editABooksRecord(Books library[], int bookCount, std::string tit
 // Function to delete a book from the database, including subtracting the quantity of the book from the total quantity
 void inventory::deleteABook(Books library[], int bookCount, std::string title) {
 	int i;
-	for (i = 0; i < bookCount; i++) {
+	for (i = 1; i < bookCount; i++) {
 		if (library[i].getTitle() == title) {
 			break;
 		}
